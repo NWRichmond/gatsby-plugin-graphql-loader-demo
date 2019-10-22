@@ -5,12 +5,12 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import Header from "./header"
-import "./layout.css"
+import Header from './header';
+import './layout.css';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -18,10 +18,11 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+          githubURL
         }
       }
     }
-  `)
+  `);
 
   return (
     <>
@@ -34,19 +35,29 @@ const Layout = ({ children }) => {
           paddingTop: 0,
         }}
       >
+        <div style={{ textAlign: `end`, color: '#949494' }}>
+          view on{' '}
+          <a
+            href={data.site.siteMetadata.githubURL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#949494' }}
+          >
+            GitHub
+          </a>
+        </div>
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
+          © {new Date().getFullYear()}, Built with{' '}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
     </>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

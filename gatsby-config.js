@@ -3,7 +3,7 @@ module.exports = {
     title: `Loading .graphql and .gql files with Gatsby`,
     description: `Example site demonstrating how to use gatsby-plugin-graphql-loader`,
     author: `@nwrichmond`,
-    githubURL: `https://github.com/NWRichmond/gatsby-plugin-graphql-loader`,
+    githubURL: `https://github.com/NWRichmond/gatsby-plugin-graphql-loader-demo`,
   },
   plugins: [
     `gatsby-plugin-graphql-loader`,
