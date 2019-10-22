@@ -1,0 +1,8 @@
+query getUserComments($firstname: String!) {
+  users(where: { firstname_eq: $firstname }) {
+    firstname
+    comments {
+      text
+    }
+  }
+}
