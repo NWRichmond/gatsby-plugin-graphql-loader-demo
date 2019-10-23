@@ -51,6 +51,7 @@ const IndexPage = () => {
         ...which is saved as a <code>.gql</code> file and imported into a React
         component which uses Apollo Client to query the GraphQL endpoint.
       </p>
+      <h2>See The Query in Action</h2>
       <h3>Select A User:</h3>
       <div style={{ margin: `1rem auto` }}>
         <select
@@ -64,7 +65,7 @@ const IndexPage = () => {
           <option value="Brett">Brett</option>
         </select>
       </div>
-      <h2>Query Result:</h2>
+      <h3>Query Result:</h3>
       <UserInfo firstname={user} />
     </Layout>
   );
