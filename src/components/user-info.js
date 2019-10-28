@@ -12,8 +12,8 @@ const UserComments = ({ comments }) => (
     }}
   >
     <ul>
-      {comments.map(({ text }) => (
-        <li key={text.slice(0, 30)}>{text}</li>
+      {comments.map(({ text }, index) => (
+        <li key={`${text.slice(0, 10)}-${index}`}>{text}</li>
       ))}
     </ul>
   </div>
@@ -27,7 +27,7 @@ const UserInfo = ({ firstname }) => {
   const { data, loading, error } = useQuery(GET_USER_COMMENTS, {
     variables: { firstname },
   });
-  const user = !loading && !error ? data.users[0] : null;
+  const [user] = !loading && !error ? data.users : [null];
   if (error) {
     console.log(`QUERY ERROR: ${error}`);
     return <p>Error Querying Data</p>;
